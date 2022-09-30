@@ -31,4 +31,10 @@ public class HourlyEmployeeTest {
         assertEquals("name = sang, hireDate = 2020-03-23, hourlyRate = 10.0, hoursWorkedPerMonth = 200",
                 employee.getEmployeeInfo());
     }
+
+    @Test
+    public void computeMonthlyTaxToPay_should_compute_tax_correctly() {
+        double monthlyTaxToPay = employee.computeMonthlyTaxToPay();
+        assertEquals(500.0, monthlyTaxToPay, 0.01);
+    }
 }
