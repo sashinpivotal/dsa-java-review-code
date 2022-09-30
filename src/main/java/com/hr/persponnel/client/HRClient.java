@@ -11,15 +11,23 @@ public class HRClient {
 
     public static void main(String[] args) {
 
-        Employee employee1 = new SalariedEmployee("joe", LocalDate.of(2010, 12, 12));
+        Employee employee1 = new SalariedEmployee("joe",
+                LocalDate.of(2010, 12, 12),
+                2000.0);
         String employeeInfo1 = employee1.getEmployeeInfo();
         System.out.println(employeeInfo1);
 
-        Employee employee2 = new SalariedEmployee("maria", LocalDate.of(2020, 02, 12));
+        Employee employee2
+                = new SalariedEmployee("maria",
+                LocalDate.of(2020, 02, 12),
+                3000.0);
         String employeeInfo2 = employee2.getEmployeeInfo();
         System.out.println(employeeInfo2);
 
-        Employee employee3 = new HourlyEmployee("dave", LocalDate.of(2021, 03, 23));
+        Employee employee3
+                = new HourlyEmployee("dave",
+                LocalDate.of(2021, 03, 23),
+                10.0, 100);
         String employeeInfo3 = employee3.getEmployeeInfo();
         System.out.println(employeeInfo3);
 
@@ -31,5 +39,8 @@ public class HRClient {
                 = department.letEmployeesWorkAndReturnNumberOfEmployeesWhoWorked();
         System.out.println("number of employees who worked = " +
                 numberOfEmployeesWhoWorked);
+
+        double monthlyTotalCompensation = department.computeDepartmentMonthlyTotalCompensation();
+        System.out.println("monthly total compensation = " + monthlyTotalCompensation);
     }
 }

@@ -10,12 +10,22 @@ public class SalariedEmployee extends Employee{
         super(name, hireDate);
     }
 
+    public SalariedEmployee(String name, LocalDate hireDate, double monthlySalary) {
+        super(name, hireDate);
+        this.monthlySalary = monthlySalary;
+    }
+
     public double getMonthlySalary() {
         return monthlySalary;
     }
 
     public void setMonthlySalary(double monthlySalary) {
         this.monthlySalary = monthlySalary;
+    }
+
+    @Override
+    public double computeMonthlyCompensation() {
+        return monthlySalary;
     }
 
 }

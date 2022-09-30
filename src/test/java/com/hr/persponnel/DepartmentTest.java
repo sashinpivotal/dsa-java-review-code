@@ -17,10 +17,10 @@ public class DepartmentTest {
         department = new Department("marketing", "boston");
 
         department.addEmployee(new SalariedEmployee("sang",
-                LocalDate.of(2020, 01,03)));
+                LocalDate.of(2020, 01,03), 2000.0));
 
         department.addEmployee(new SalariedEmployee("dave",
-                LocalDate.of(2025, 01,03)));
+                LocalDate.of(2025, 01,03), 3000.0));
     }
 
     @Test
@@ -41,5 +41,14 @@ public class DepartmentTest {
         int numberOfEmployeesWhoWorked = department.letEmployeesWorkAndReturnNumberOfEmployeesWhoWorked();
         Assert.assertEquals(2, numberOfEmployeesWhoWorked);
 
+    }
+
+    @Test
+    public void computeDepartmentMonthlyTotalCompensation_should_return_total_monthly_compensation() {
+        department.addEmployee(new HourlyEmployee("paul",
+                LocalDate.of(2020, 1, 23),
+                10.0, 100));
+        double monthlyTotalCompensation = department.computeDepartmentMonthlyTotalCompensation();
+        Assert.assertEquals(6000.0, monthlyTotalCompensation, 0.01);
     }
 }

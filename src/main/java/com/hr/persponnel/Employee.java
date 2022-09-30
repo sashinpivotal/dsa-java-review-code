@@ -21,4 +21,8 @@ public class Employee {
         return name + " worked";
     }
 
+    public double computeMonthlyCompensation() {
+        return 0.0;
+    }
+
 }
