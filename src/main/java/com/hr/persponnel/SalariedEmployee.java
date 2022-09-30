@@ -15,6 +15,13 @@ public class SalariedEmployee extends Employee{
         this.monthlySalary = monthlySalary;
     }
 
+    @Override
+    public String getEmployeeInfo() {
+        return "name = " +  getName() + ", "
+                + "hireDate = " + getHireDate() + ", "
+                + "monthlySalary = " + getMonthlySalary();
+    }
+
     public double getMonthlySalary() {
         return monthlySalary;
     }

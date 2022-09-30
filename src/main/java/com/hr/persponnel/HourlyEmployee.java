@@ -11,6 +11,14 @@ public class HourlyEmployee extends Employee{
         super(name, hireDate);
     }
 
+    @Override
+    public String getEmployeeInfo() {
+        return "name = " +  getName() + ", "
+                + "hireDate = " + getHireDate() + ", "
+                + "hourlyRate = " + getHourlyRate() + ", "
+                + "hoursWorkedPerMonth = " + getHoursWorkedPerMonth();
+    }
+
     public HourlyEmployee(String name, LocalDate hireDate, double hourlyRate, int hoursWorkedPerMonth) {
         super(name, hireDate);
         this.hourlyRate = hourlyRate;
