@@ -45,4 +45,11 @@ public class SalariedEmployeeTest {
         double monthlyTaxToPay = employee.computeMonthlyTaxToPay();
         assertEquals(0.0, monthlyTaxToPay, 0.01);
     }
+
+    @Test(expected = TooMuchSalaryException.class)
+    public void throw_TooMuchSalaryException_when_salary_is_set_with_more_than_million() {
+        employee = new SalariedEmployee("sang",
+                LocalDate.of(2020, 05, 23),
+                2000000.0);
+    }
 }

@@ -12,6 +12,9 @@ public class SalariedEmployee extends Employee{
 
     public SalariedEmployee(String name, LocalDate hireDate, double monthlySalary) {
         super(name, hireDate);
+        if (monthlySalary > 1_000_000) {
+            throw new TooMuchSalaryException("too much salary");
+        }
         this.monthlySalary = monthlySalary;
     }
 
@@ -27,6 +30,9 @@ public class SalariedEmployee extends Employee{
     }
 
     public void setMonthlySalary(double monthlySalary) {
+        if (monthlySalary > 1_000_1000) {
+            throw new TooMuchSalaryException("too much salary");
+        }
         this.monthlySalary = monthlySalary;
     }
 
