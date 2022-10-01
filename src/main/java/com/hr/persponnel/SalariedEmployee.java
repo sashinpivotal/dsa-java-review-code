@@ -37,6 +37,11 @@ public class SalariedEmployee extends Employee{
 
     @Override
     public double computeMonthlyTaxToPay() {
-        return computeMonthlyCompensation() * SALARIED_TAX_RATE;
+        double monthlyTaxToPay = computeMonthlyCompensation() * SALARIED_TAX_RATE
+                - computeStandardEmployeeMonthlyDeduction();
+        if (monthlyTaxToPay < 0.0) {
+            return 0.0;
+        }
+        return monthlyTaxToPay;
     }
 }

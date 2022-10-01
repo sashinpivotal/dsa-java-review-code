@@ -2,7 +2,7 @@ package com.hr.persponnel;
 
 import java.time.LocalDate;
 
-public class HourlyEmployee extends Employee{
+public class HourlyEmployee extends Employee {
 
     private double hourlyRate;
     private int hoursWorkedPerMonth;
@@ -13,7 +13,7 @@ public class HourlyEmployee extends Employee{
 
     @Override
     public String getEmployeeInfo() {
-        return "name = " +  getName() + ", "
+        return "name = " + getName() + ", "
                 + "hireDate = " + getHireDate() + ", "
                 + "hourlyRate = " + getHourlyRate() + ", "
                 + "hoursWorkedPerMonth = " + getHoursWorkedPerMonth();
@@ -48,6 +48,12 @@ public class HourlyEmployee extends Employee{
 
     @Override
     public double computeMonthlyTaxToPay() {
-        return computeMonthlyCompensation() * HOURLY_TAX_RATE;
+        double monthlyTaxToPay
+                = computeMonthlyCompensation() * HOURLY_TAX_RATE
+                - computeStandardEmployeeMonthlyDeduction();
+        if (monthlyTaxToPay < 0.0) {
+            return 0.0;
+        }
+        return monthlyTaxToPay;
     }
 }

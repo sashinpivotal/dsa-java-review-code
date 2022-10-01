@@ -32,8 +32,17 @@ public class SalariedEmployeeTest {
     }
 
     @Test
-    public void computeMonthlyTaxToPay_should_compute_tax_correctly() {
+    public void computeMonthlyTaxToPay_should_return_positive_tax_value_when_tax_to_pay_is_greater_than_default_deduction() {
         double monthlyTaxToPay = employee.computeMonthlyTaxToPay();
-        assertEquals(300.0, monthlyTaxToPay, 0.01);
+        assertEquals(50.0, monthlyTaxToPay, 0.01);
+    }
+
+    @Test
+    public void computeMonthlyTaxToPay_should_return_0_tax_value_when_tax_to_pay_is_less_than_default_deduction() {
+        employee = new SalariedEmployee("sang",
+                LocalDate.of(2020, 05, 23),
+                100.0);
+        double monthlyTaxToPay = employee.computeMonthlyTaxToPay();
+        assertEquals(0.0, monthlyTaxToPay, 0.01);
     }
 }

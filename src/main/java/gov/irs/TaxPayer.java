@@ -7,4 +7,10 @@ public interface TaxPayer {
     public static final double CORP_TAX_RATE = 0.10;
 
     double computeMonthlyTaxToPay();
+
+    public static final double DEFAULT_STANDARD_EMPLOYEE_MONTHLY_DEDUCTION = 250.0;
+
+    default double computeStandardEmployeeMonthlyDeduction() {
+        return DEFAULT_STANDARD_EMPLOYEE_MONTHLY_DEDUCTION;
+    }
 }

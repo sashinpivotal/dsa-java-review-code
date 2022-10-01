@@ -35,6 +35,16 @@ public class HourlyEmployeeTest {
     @Test
     public void computeMonthlyTaxToPay_should_compute_tax_correctly() {
         double monthlyTaxToPay = employee.computeMonthlyTaxToPay();
-        assertEquals(500.0, monthlyTaxToPay, 0.01);
+        assertEquals(250.0, monthlyTaxToPay, 0.01);
+    }
+
+    @Test
+    public void computeMonthlyTaxToPay_should_return_0_tax_value_when_tax_to_pay_is_less_than_default_deduction() {
+        employee = new HourlyEmployee("sang",
+                LocalDate.of(2020, 03, 23),
+                10.0,
+                20);
+        double monthlyTaxToPay = employee.computeMonthlyTaxToPay();
+        assertEquals(0.0, monthlyTaxToPay, 0.01);
     }
 }

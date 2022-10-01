@@ -22,6 +22,6 @@ public class IRSTest {
                 10.0, 100));
         irs.register(new Corporation("acme", 10_000));
         double totalMonthlyTaxToCollect = irs.computeTotalMonthlyTaxToCollect();
-        Assert.assertEquals(1850.0, totalMonthlyTaxToCollect, 0.01);
+        Assert.assertEquals(1350.0, totalMonthlyTaxToCollect, 0.01);
     }
 }
