@@ -6,13 +6,13 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 
-public class DepartmentTest {
+public class DepartmentUsingArrayTest {
 
-    private Department department;
+    private DepartmentUsingArray department;
 
     @Before
     public void setUp() throws Exception {
-        department = new Department("marketing", "boston");
+        department = new DepartmentUsingArray("marketing", "boston");
 
         department.addEmployee(new SalariedEmployee("sang",
                 LocalDate.of(2020, 01,03), 2000.0));
@@ -27,10 +27,10 @@ public class DepartmentTest {
         // arrange
 
         // act
-        int numberOfEmployeesInDepartment = department.getEmployees().size();
+        int currentIndex = department.getCurrentIndex();
 
         // assert
-        Assert.assertEquals(2, numberOfEmployeesInDepartment);
+        Assert.assertEquals(2, currentIndex);
     }
 
     @Test
