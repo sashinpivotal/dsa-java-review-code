@@ -47,4 +47,12 @@ public class HourlyEmployeeTest {
         double monthlyTaxToPay = employee.computeMonthlyTaxToPay();
         assertEquals(0.0, monthlyTaxToPay, 0.01);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void constructor_should_throw_IllegalArgumentException_when_hourlyRate_is_less_than_federal_minimum_wage() {
+        employee = new HourlyEmployee("sang",
+                LocalDate.of(2020, 03, 23),
+                5.0,
+                20);
+    }
 }

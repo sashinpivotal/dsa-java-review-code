@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 public class HourlyEmployee extends Employee {
 
+    public static final double FEDERAL_MINIMUM_HOURLY_WAGE = 7.0;
+
     private double hourlyRate;
     private int hoursWorkedPerMonth;
 
@@ -21,6 +23,9 @@ public class HourlyEmployee extends Employee {
 
     public HourlyEmployee(String name, LocalDate hireDate, double hourlyRate, int hoursWorkedPerMonth) {
         super(name, hireDate);
+        if (hourlyRate < FEDERAL_MINIMUM_HOURLY_WAGE) {
+            throw new IllegalArgumentException();
+        }
         this.hourlyRate = hourlyRate;
         this.hoursWorkedPerMonth = hoursWorkedPerMonth;
     }
@@ -38,6 +43,9 @@ public class HourlyEmployee extends Employee {
     }
 
     public void setHourlyRate(double hourlyRate) {
+        if (hourlyRate < FEDERAL_MINIMUM_HOURLY_WAGE) {
+            throw new IllegalArgumentException();
+        }
         this.hourlyRate = hourlyRate;
     }
 
