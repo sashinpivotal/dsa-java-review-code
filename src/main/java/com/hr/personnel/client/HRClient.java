@@ -1,9 +1,9 @@
-package com.hr.persponnel.client;
+package com.hr.personnel.client;
 
-import com.hr.persponnel.Department;
-import com.hr.persponnel.Employee;
-import com.hr.persponnel.HourlyEmployee;
-import com.hr.persponnel.SalariedEmployee;
+import com.hr.personnel.Department;
+import com.hr.personnel.Employee;
+import com.hr.personnel.HourlyEmployee;
+import com.hr.personnel.SalariedEmployee;
 
 import java.time.LocalDate;
 

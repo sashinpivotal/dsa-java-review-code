@@ -1,35 +1,32 @@
-package com.hr.persponnel;
+package com.hr.personnel;
 
-public class DepartmentUsingArray {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Department {
 
     private String name;
     private String location;
-    private Employee[] employees = new Employee[100];
-    private int currentIndex = 0;
+    private List<Employee> employees = new ArrayList<>();
 
-    public DepartmentUsingArray(String name, String location) {
+    public Department(String name, String location) {
         this.name = name;
         this.location = location;
     }
 
     public void addEmployee(Employee employee) {
-        employees[currentIndex] = employee;
-        currentIndex++;
+        employees.add(employee);
     }
 
     public int letEmployeesWorkAndReturnNumberOfEmployeesWhoWorked() {
         int numberOfEmployeesWhoWorked = 0;
 
-        for (int i = 0; i < currentIndex  ; i++){
-            if (employees[i].work().contains("worked")) {
+        for (Employee employee : employees) {
+            if (employee.work().contains("worked")) {
                 numberOfEmployeesWhoWorked++;
             }
         }
         return numberOfEmployeesWhoWorked;
-    }
-
-    public int getCurrentIndex() {
-        return currentIndex;
     }
 
     // Compute total monthly compensation of all
@@ -37,10 +34,14 @@ public class DepartmentUsingArray {
     public double computeDepartmentMonthlyTotalCompensation() {
         double monthlyTotalCompensation = 0.0;
 
-        for (int i = 0; i < currentIndex; i++) {
-            monthlyTotalCompensation += employees[i].computeMonthlyCompensation();
+        for (Employee employee: employees) {
+            monthlyTotalCompensation += employee.computeMonthlyCompensation();
         }
 
         return monthlyTotalCompensation;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
     }
 }

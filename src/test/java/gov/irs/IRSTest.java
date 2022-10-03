@@ -1,14 +1,12 @@
 package gov.irs;
 
 import com.hr.corp.Corporation;
-import com.hr.persponnel.HourlyEmployee;
-import com.hr.persponnel.SalariedEmployee;
+import com.hr.personnel.HourlyEmployee;
+import com.hr.personnel.SalariedEmployee;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
-
-import static org.junit.Assert.*;
 
 public class IRSTest {
 

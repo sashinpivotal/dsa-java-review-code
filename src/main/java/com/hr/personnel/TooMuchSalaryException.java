@@ -1,4 +1,4 @@
-package com.hr.persponnel;
+package com.hr.personnel;
 
 public class TooMuchSalaryException extends RuntimeException {
 

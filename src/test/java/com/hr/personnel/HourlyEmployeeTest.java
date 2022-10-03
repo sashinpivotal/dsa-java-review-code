@@ -1,6 +1,5 @@
-package com.hr.persponnel;
+package com.hr.personnel;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 

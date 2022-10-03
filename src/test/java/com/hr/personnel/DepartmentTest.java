@@ -1,4 +1,4 @@
-package com.hr.persponnel;
+package com.hr.personnel;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -6,13 +6,13 @@ import org.junit.Test;
 
 import java.time.LocalDate;
 
-public class DepartmentUsingArrayTest {
+public class DepartmentTest {
 
-    private DepartmentUsingArray department;
+    private Department department;
 
     @Before
     public void setUp() throws Exception {
-        department = new DepartmentUsingArray("marketing", "boston");
+        department = new Department("marketing", "boston");
 
         department.addEmployee(new SalariedEmployee("sang",
                 LocalDate.of(2020, 01,03), 2000.0));
@@ -27,10 +27,10 @@ public class DepartmentUsingArrayTest {
         // arrange
 
         // act
-        int currentIndex = department.getCurrentIndex();
+        int numberOfEmployeesInDepartment = department.getEmployees().size();
 
         // assert
-        Assert.assertEquals(2, currentIndex);
+        Assert.assertEquals(2, numberOfEmployeesInDepartment);
     }
 
     @Test
