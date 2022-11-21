@@ -1,22 +1,24 @@
 package gov.irs;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class IRS {
 
-    private TaxPayer[] taxPayers = new TaxPayer[100];
+    private List<TaxPayer> taxPayers = new ArrayList<>();
     private int currentIndex = 0;
 
     public void register(TaxPayer taxPayer) {
-        taxPayers[currentIndex] = taxPayer;
-        currentIndex++;
+        taxPayers.add(taxPayer);
     }
 
     public double computeTotalMonthlyTaxToCollect() {
-        double totalMonthlyTaxToCollect = 0.0;
-        for (int i = 0; i < currentIndex; i++) {
-            totalMonthlyTaxToCollect
-                    += taxPayers[i].computeMonthlyTaxToPay();
-        }
-        return totalMonthlyTaxToCollect;
+
+        return taxPayers.stream()
+                .map(taxPayer -> taxPayer.computeMonthlyTaxToPay())
+                .mapToDouble(d -> d)
+                .sum();
+
     }
 
 }
