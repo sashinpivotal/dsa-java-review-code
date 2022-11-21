@@ -6,7 +6,6 @@ import java.util.List;
 public class IRS {
 
     private List<TaxPayer> taxPayers = new ArrayList<>();
-    private int currentIndex = 0;
 
     public void register(TaxPayer taxPayer) {
         taxPayers.add(taxPayer);
