@@ -8,12 +8,28 @@ public class Corporation implements TaxPayer {
     private double monthlyIncome;
 
     public Corporation(String name, double monthlyIncome) {
-        this.name = name;
-        this.monthlyIncome = monthlyIncome;
+        setName(name);
+        setMonthlyIncome(monthlyIncome);
     }
 
     @Override
     public double computeMonthlyTaxToPay() {
-        return monthlyIncome * CORP_TAX_RATE;
+        return getMonthlyIncome() * CORP_TAX_RATE;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getMonthlyIncome() {
+        return monthlyIncome;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setMonthlyIncome(double monthlyIncome) {
+        this.monthlyIncome = monthlyIncome;
     }
 }
