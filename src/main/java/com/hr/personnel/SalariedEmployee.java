@@ -6,10 +6,6 @@ public class SalariedEmployee extends Employee{
 
     private double monthlySalary;
 
-    public SalariedEmployee(String name, LocalDate hireDate) {
-        super(name, hireDate);
-    }
-
     public SalariedEmployee(String name, LocalDate hireDate, double monthlySalary) {
         super(name, hireDate);
         if (monthlySalary > 1_000_000) {
@@ -25,17 +21,6 @@ public class SalariedEmployee extends Employee{
                 + "monthlySalary = " + getMonthlySalary();
     }
 
-    public double getMonthlySalary() {
-        return monthlySalary;
-    }
-
-    public void setMonthlySalary(double monthlySalary) {
-        if (monthlySalary > 1_000_1000) {
-            throw new TooMuchSalaryException("too much salary");
-        }
-        this.monthlySalary = monthlySalary;
-    }
-
     @Override
     public double computeMonthlyCompensation() {
         return monthlySalary;
@@ -49,5 +34,16 @@ public class SalariedEmployee extends Employee{
             return 0.0;
         }
         return monthlyTaxToPay;
+    }
+
+    public double getMonthlySalary() {
+        return monthlySalary;
+    }
+
+    public void setMonthlySalary(double monthlySalary) {
+        if (monthlySalary > 1_000_1000) {
+            throw new TooMuchSalaryException("too much salary");
+        }
+        this.monthlySalary = monthlySalary;
     }
 }
