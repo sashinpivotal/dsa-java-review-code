@@ -9,25 +9,29 @@ public class HourlyEmployee extends Employee {
     private double hourlyRate;
     private int hoursWorkedPerMonth;
 
-    public HourlyEmployee(String name, LocalDate hireDate) {
-        super(name, hireDate);
-    }
-
-    @Override
-    public String getEmployeeInfo() {
-        return "name = " + getName() + ", "
-                + "hireDate = " + getHireDate() + ", "
-                + "hourlyRate = " + getHourlyRate() + ", "
-                + "hoursWorkedPerMonth = " + getHoursWorkedPerMonth();
-    }
-
     public HourlyEmployee(String name, LocalDate hireDate, double hourlyRate, int hoursWorkedPerMonth) {
         super(name, hireDate);
         if (hourlyRate < FEDERAL_MINIMUM_HOURLY_WAGE) {
             throw new IllegalArgumentException();
         }
-        this.hourlyRate = hourlyRate;
-        this.hoursWorkedPerMonth = hoursWorkedPerMonth;
+        setHourlyRate(hourlyRate); ;
+        setHoursWorkedPerMonth(hoursWorkedPerMonth);
+    }
+
+    @Override
+    public double computeMonthlyCompensation() {
+        return hourlyRate * hoursWorkedPerMonth;
+    }
+
+    @Override
+    public double computeMonthlyTaxToPay() {
+        double monthlyTaxToPay
+                = computeMonthlyCompensation() * HOURLY_TAX_RATE
+                - computeStandardEmployeeMonthlyDeduction();
+        if (monthlyTaxToPay < 0.0) {
+            return 0.0;
+        }
+        return monthlyTaxToPay;
     }
 
     public int getHoursWorkedPerMonth() {
@@ -50,18 +54,10 @@ public class HourlyEmployee extends Employee {
     }
 
     @Override
-    public double computeMonthlyCompensation() {
-        return hourlyRate * hoursWorkedPerMonth;
-    }
-
-    @Override
-    public double computeMonthlyTaxToPay() {
-        double monthlyTaxToPay
-                = computeMonthlyCompensation() * HOURLY_TAX_RATE
-                - computeStandardEmployeeMonthlyDeduction();
-        if (monthlyTaxToPay < 0.0) {
-            return 0.0;
-        }
-        return monthlyTaxToPay;
+    public String getEmployeeInfo() {
+        return "name = " + getName() + ", "
+                + "hireDate = " + getHireDate() + ", "
+                + "hourlyRate = " + getHourlyRate() + ", "
+                + "hoursWorkedPerMonth = " + getHoursWorkedPerMonth();
     }
 }
