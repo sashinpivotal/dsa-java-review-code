@@ -38,7 +38,8 @@ public class Department {
         double monthlyTotalCompensation = 0.0;
 
         for (int i = 0; i < currentIndex; i++) {
-            monthlyTotalCompensation += employees[i].computeMonthlyCompensation();
+            monthlyTotalCompensation
+                    += employees[i].computeMonthlyCompensation();
         }
 
         return monthlyTotalCompensation;
