@@ -5,18 +5,18 @@ import java.util.List;
 
 public class IRS {
 
-    private static IRS instance;
+    private static IRS singleTonInstance;
 
     private IRS() {
     }
 
     // If singleton instance has not been created yet,
     // create one.  Otherwise, return the same instance.
-    public static IRS getInstance() {
-        if (instance == null) {
-            instance = new IRS();
+    public static IRS getSingleTonInstance() {
+        if (singleTonInstance == null) {
+            singleTonInstance = new IRS();
         }
-        return instance;
+        return singleTonInstance;
     }
 
     private List<TaxPayer> taxPayers = new ArrayList<>();

@@ -12,7 +12,7 @@ public class IRSTest {
 
     @Test
     public void computeTotalMonthlyTaxToCollect() {
-        IRS irs = IRS.getInstance();
+        IRS irs = IRS.getSingleTonInstance();
         irs.register(new SalariedEmployee("sang",
                 LocalDate.of(2020, 1, 23), 2000.0));
         irs.register(new HourlyEmployee("joe",
