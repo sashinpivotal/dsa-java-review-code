@@ -8,11 +8,11 @@ import java.time.LocalDate;
 
 public class DepartmentUsingArrayTest {
 
-    private DepartmentUsingArray department;
+    private Department department;
 
     @Before
     public void setUp() throws Exception {
-        department = new DepartmentUsingArray("marketing", "boston");
+        department = new Department("marketing", "boston");
 
         department.addEmployee(new SalariedEmployee("sang",
                 LocalDate.of(2020, 01,03), 2000.0));

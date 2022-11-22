@@ -27,7 +27,7 @@ public class DepartmentTest {
         // arrange
 
         // act
-        int numberOfEmployeesInDepartment = department.getEmployees().size();
+        int numberOfEmployeesInDepartment = department.getCurrentIndex();
 
         // assert
         Assert.assertEquals(2, numberOfEmployeesInDepartment);
