@@ -15,25 +15,20 @@ public abstract class Employee implements TaxPayer {
     }
 
     public abstract String getEmployeeInfo();
+    public abstract double computeMonthlyCompensation();
 
     public String work() {
         return name + " worked";
     }
-
-    public abstract double computeMonthlyCompensation();
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public LocalDate getHireDate() {
         return hireDate;
     }
-
     public void setHireDate(LocalDate hireDate) {
         this.hireDate = hireDate;
     }

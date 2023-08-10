@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class DepartmentUsingArrayTest {
 
     private Department department;
@@ -30,7 +32,7 @@ public class DepartmentUsingArrayTest {
         int currentIndex = department.getCurrentIndex();
 
         // assert
-        Assertions.assertEquals(2, currentIndex);
+        assertEquals(2, currentIndex);
     }
 
     @Test
@@ -38,7 +40,7 @@ public class DepartmentUsingArrayTest {
 
         int numberOfEmployeesWhoWorked
                 = department.letEmployeesWorkAndReturnNumberOfEmployeesWhoWorked();
-        Assertions.assertEquals(2, numberOfEmployeesWhoWorked);
+        assertEquals(2, numberOfEmployeesWhoWorked);
 
     }
 
@@ -48,6 +50,6 @@ public class DepartmentUsingArrayTest {
                 LocalDate.of(2020, 1, 23),
                 10.0, 100));
         double monthlyTotalCompensation = department.computeDepartmentMonthlyTotalCompensation();
-        Assertions.assertEquals(6000.0, monthlyTotalCompensation, 0.01);
+        assertEquals(6000.0, monthlyTotalCompensation, 0.01);
     }
 }

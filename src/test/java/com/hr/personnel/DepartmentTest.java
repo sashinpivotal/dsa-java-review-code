@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class DepartmentTest {
 
     private Department department;
@@ -32,14 +34,14 @@ public class DepartmentTest {
         int numberOfEmployeesInDepartment = department.getCurrentIndex();
 
         // assert
-        Assertions.assertEquals(2, numberOfEmployeesInDepartment);
+        assertEquals(2, numberOfEmployeesInDepartment);
     }
 
     @Test
     public void letEmployeesWorkAndReturnNumberOfEmployeesWhoWorked_should_return_correct_value() {
 
         int numberOfEmployeesWhoWorked = department.letEmployeesWorkAndReturnNumberOfEmployeesWhoWorked();
-        Assertions.assertEquals(2, numberOfEmployeesWhoWorked);
+        assertEquals(2, numberOfEmployeesWhoWorked);
 
     }
 
@@ -49,6 +51,6 @@ public class DepartmentTest {
                 LocalDate.of(2020, 1, 23),
                 10.0, 100));
         double monthlyTotalCompensation = department.computeDepartmentMonthlyTotalCompensation();
-        Assertions.assertEquals(6000.0, monthlyTotalCompensation, 0.01);
+        assertEquals(6000.0, monthlyTotalCompensation, 0.01);
     }
 }
