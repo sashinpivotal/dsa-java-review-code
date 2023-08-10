@@ -47,7 +47,7 @@ public class SalariedEmployeeTest {
     }
 
     @Test
-    public void throw_TooMuchSalaryException_when_salary_is_set_with_more_than_million() {
+    public void _throw_TooMuchSalaryException_when_salary_is_set_with_more_than_million() {
         assertThrows(
                 TooMuchSalaryException.class, () -> {
                     employee = new SalariedEmployee("sang",
