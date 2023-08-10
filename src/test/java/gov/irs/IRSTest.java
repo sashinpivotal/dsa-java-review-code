@@ -3,10 +3,12 @@ package gov.irs;
 import com.hr.corp.Corporation;
 import com.hr.personnel.HourlyEmployee;
 import com.hr.personnel.SalariedEmployee;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class IRSTest {
 
@@ -20,6 +22,6 @@ public class IRSTest {
                 10.0, 100));
         irs.register(new Corporation("acme", 10_000));
         double totalMonthlyTaxToCollect = irs.computeTotalMonthlyTaxToCollect();
-        Assert.assertEquals(1350.0, totalMonthlyTaxToCollect, 0.01);
+        assertEquals(1350.0, totalMonthlyTaxToCollect, 0.01);
     }
 }

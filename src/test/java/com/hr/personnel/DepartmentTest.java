@@ -1,8 +1,10 @@
 package com.hr.personnel;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
@@ -10,7 +12,7 @@ public class DepartmentTest {
 
     private Department department;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         department = new Department("marketing", "boston");
 
@@ -30,14 +32,14 @@ public class DepartmentTest {
         int numberOfEmployeesInDepartment = department.getCurrentIndex();
 
         // assert
-        Assert.assertEquals(2, numberOfEmployeesInDepartment);
+        Assertions.assertEquals(2, numberOfEmployeesInDepartment);
     }
 
     @Test
     public void letEmployeesWorkAndReturnNumberOfEmployeesWhoWorked_should_return_correct_value() {
 
         int numberOfEmployeesWhoWorked = department.letEmployeesWorkAndReturnNumberOfEmployeesWhoWorked();
-        Assert.assertEquals(2, numberOfEmployeesWhoWorked);
+        Assertions.assertEquals(2, numberOfEmployeesWhoWorked);
 
     }
 
@@ -47,6 +49,6 @@ public class DepartmentTest {
                 LocalDate.of(2020, 1, 23),
                 10.0, 100));
         double monthlyTotalCompensation = department.computeDepartmentMonthlyTotalCompensation();
-        Assert.assertEquals(6000.0, monthlyTotalCompensation, 0.01);
+        Assertions.assertEquals(6000.0, monthlyTotalCompensation, 0.01);
     }
 }

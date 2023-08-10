@@ -1,17 +1,18 @@
 package com.hr.personnel;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SalariedEmployeeTest {
 
     private SalariedEmployee employee;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         employee = new SalariedEmployee("sang",
                 LocalDate.of(2020, 05, 23),
@@ -45,10 +46,15 @@ public class SalariedEmployeeTest {
         assertEquals(0.0, monthlyTaxToPay, 0.01);
     }
 
-    @Test(expected = TooMuchSalaryException.class)
+    @Test
     public void throw_TooMuchSalaryException_when_salary_is_set_with_more_than_million() {
-        employee = new SalariedEmployee("sang",
-                LocalDate.of(2020, 05, 23),
-                2000000.0);
+        assertThrows(
+                TooMuchSalaryException.class, () -> {
+                    employee = new SalariedEmployee("sang",
+                            LocalDate.of(2020, 05, 23),
+                            2000000.0);
+                });
+
     }
+
 }

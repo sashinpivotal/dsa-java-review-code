@@ -1,17 +1,18 @@
 package com.hr.personnel;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class HourlyEmployeeTest {
 
     private HourlyEmployee employee;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         employee = new HourlyEmployee("sang",
                 LocalDate.of(2020, 03, 23),
@@ -47,11 +48,15 @@ public class HourlyEmployeeTest {
         assertEquals(0.0, monthlyTaxToPay, 0.01);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void constructor_should_throw_IllegalArgumentException_when_hourlyRate_is_less_than_federal_minimum_wage() {
-        employee = new HourlyEmployee("sang",
-                LocalDate.of(2020, 03, 23),
-                5.0,
-                20);
+    @Test
+    public void _constructor_should_throw_IllegalArgumentException_when_hourlyRate_is_less_than_federal_minimum_wage() {
+        assertThrows(
+                IllegalArgumentException.class, () -> {
+                    employee = new HourlyEmployee("sang",
+                            LocalDate.of(2020, 03, 23),
+                            5.0,
+                            20);
+                });
     }
+
 }

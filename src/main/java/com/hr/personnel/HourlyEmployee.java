@@ -9,7 +9,10 @@ public class HourlyEmployee extends Employee {
     private double hourlyRate;
     private int hoursWorkedPerMonth;
 
-    public HourlyEmployee(String name, LocalDate hireDate, double hourlyRate, int hoursWorkedPerMonth) {
+    public HourlyEmployee(String name,
+                          LocalDate hireDate,
+                          double hourlyRate,
+                          int hoursWorkedPerMonth) {
         super(name, hireDate);
         if (hourlyRate < FEDERAL_MINIMUM_HOURLY_WAGE) {
             throw new IllegalArgumentException();
