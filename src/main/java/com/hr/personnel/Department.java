@@ -1,5 +1,7 @@
 package com.hr.personnel;
 
+import java.util.Arrays;
+
 public class Department {
 
     private String name;
@@ -20,11 +22,17 @@ public class Department {
     public int letEmployeesWorkAndReturnNumberOfEmployeesWhoWorked() {
         int numberOfEmployeesWhoWorked = 0;
 
-        for (int i = 0; i < currentIndex  ; i++){
+        for (int i = 0; i < currentIndex; i++) {
             if (employees[i].work().contains("worked")) {
                 numberOfEmployeesWhoWorked++;
             }
         }
+
+//        long worked = Arrays.stream(employees)
+//                .filter(employee -> employee != null && employee.work().contains("worked"))
+//                .count();
+//        numberOfEmployeesWhoWorked = (int) worked;
+
         return numberOfEmployeesWhoWorked;
     }
 
