@@ -29,7 +29,8 @@ public class Department {
         }
 
 //        long worked = Arrays.stream(employees)
-//                .filter(employee -> employee != null && employee.work().contains("worked"))
+//                .filter(employee -> employee != null
+//                                   && employee.work().contains("worked"))
 //                .count();
 //        numberOfEmployeesWhoWorked = (int) worked;
 
